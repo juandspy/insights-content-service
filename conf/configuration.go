@@ -201,17 +201,17 @@ func GetKafkaZerologConfiguration() logger.KafkaZerologConfiguration {
 // otherwise it returns corresponding error
 func checkIfFileExists(path string) error {
 	if path == "" {
-		return fmt.Errorf("Empty path provided")
+		return fmt.Errorf("empty path provided")
 	}
 	fileInfo, err := os.Stat(path)
 	if os.IsNotExist(err) {
-		return fmt.Errorf("The following file path does not exist. Path: '%v'", path)
+		return fmt.Errorf("the following file path does not exist. Path: '%v'", path)
 	} else if err != nil {
 		return err
 	}
 
 	if fileMode := fileInfo.Mode(); !fileMode.IsRegular() {
-		return fmt.Errorf("The following file path is not a regular file. Path: '%v'", path)
+		return fmt.Errorf("the following file path is not a regular file. Path: '%v'", path)
 	}
 
 	return nil

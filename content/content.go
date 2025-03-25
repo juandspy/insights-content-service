@@ -452,7 +452,7 @@ func printInvalidRules(invalidRules []string) {
 // ParseRuleContentDir finds all rule content in a directory and parses it.
 func ParseRuleContentDir(contentDirPath string) (RuleContentDirectory, map[string]ctypes.RuleContentStatus, error) {
 	// we don't know in advance how many rules we have, so let's use nil slice there
-	var ruleContentStatusMap map[string]ctypes.RuleContentStatus = make(map[string]ctypes.RuleContentStatus)
+	var ruleContentStatusMap = make(map[string]ctypes.RuleContentStatus)
 
 	globalConfig, err := parseGlobalContentConfig(path.Join(contentDirPath, "config.yaml"))
 	if err != nil {

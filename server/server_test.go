@@ -65,11 +65,7 @@ func TestServerStartHTTP(t *testing.T) {
 		}, nil, contentDir, nil)
 
 		go func() {
-			for {
-				if s.Serv != nil {
-					break
-				}
-
+			for s.Serv != nil {
 				time.Sleep(500 * time.Millisecond)
 			}
 

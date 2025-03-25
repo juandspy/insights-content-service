@@ -77,7 +77,7 @@ func (server *HTTPServer) infoMap(writer http.ResponseWriter, request *http.Requ
 func (server *HTTPServer) ruleContentStates(writer http.ResponseWriter, request *http.Request) {
 	query := request.URL.Query()
 	if query == nil {
-		err := errors.New("Unable to retrieve Query object (should not happen)")
+		err := errors.New("unable to retrieve Query object (should not happen)")
 		log.Error().Err(err).Msg(responseDataError)
 		handleServerError(err)
 		return
